@@ -2,7 +2,7 @@
 
 open System
 
-type KoanResult = 
+type KoanResult =
     | Success of string
     | Failure of string * Exception
 with

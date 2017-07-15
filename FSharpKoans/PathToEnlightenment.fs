@@ -6,7 +6,7 @@ let result = runner.ExecuteKoans()
 
 match result with
 | Success message -> printf "%s" message
-| Failure (message, ex) -> 
+| Failure (message, ex) ->
     printf "%s" message
     printfn ""
     printfn ""
@@ -17,7 +17,7 @@ match result with
     printfn ""
     printfn "Please meditate on the following code:"
     printfn "%s" ex.StackTrace
-    
+
 printfn ""
 printfn ""
 printfn ""

@@ -12,17 +12,17 @@ let hasKoanAttribute (info:MethodInfo) =
 let findKoanMethods (container: Type) =
     container.GetMethods(BindingFlags.Public ||| BindingFlags.Static)
     |> Seq.filter hasKoanAttribute
-    
+
 let runKoans container =
     let getKoanResult (m:MethodInfo) =
         try
             m.Invoke(null, [||]) |> ignore
             Success <| sprintf "%s passed" m.Name
         with
-        | ex -> 
+        | ex ->
             let outcome = sprintf "%s failed." m.Name
             Failure(outcome, ex.InnerException)
-        
+
     container
     |> findKoanMethods
     |> Seq.map getKoanResult

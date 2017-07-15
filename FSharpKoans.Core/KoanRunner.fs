@@ -37,9 +37,9 @@ type KoanRunner(containers) =
             |> Array.sortBy (fun (t, attrs) -> (attrs.[0] :?> KoanAttribute).Sort)
             |> Array.map fst
         KoanRunner(containers)
-        
+
     member this.ExecuteKoans() =
-        let result = 
+        let result =
             containers
             |> Seq.map getContainerResult
             |> Seq.scan (buildKoanResult "%s\n\n%s") (Success "")
